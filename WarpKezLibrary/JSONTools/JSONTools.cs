@@ -5,10 +5,20 @@ namespace WarpKezLibrary.JSONTools;
 
 public class JSONTools
 {
-    // Convert a model to a JSON document
+    /// <summary>
+    /// Convert a model to JSON
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="model"></param>
+    /// <returns></returns>
     public string ToJson<T>(T model) => JsonConvert.SerializeObject(model, Formatting.Indented);
 
-    // Convert from JSON document to a model
+    /// <summary>
+    /// Convert from JSON to model
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="json"></param>
+    /// <returns></returns>
     public T FromJson<T>(string json)
     {
         T? model = JsonConvert.DeserializeObject<T>(json);

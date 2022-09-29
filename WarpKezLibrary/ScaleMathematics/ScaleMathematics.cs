@@ -2,6 +2,9 @@
 
 namespace WarpKezLibrary.ScaleMathematics;
 
+/// <summary>
+/// Mathematica routines for scale modeling
+/// </summary>
 public class ScaleMaths
 {
     private int _DecimalPrecision = 0;
@@ -62,6 +65,13 @@ public class ScaleMaths
         return result;
     }
 
+    /// <summary>
+    /// Converts metric real world measurements to those of the scaled world measurements
+    /// </summary>
+    /// <param name="metrics"></param>
+    /// <param name="measurement"></param>
+    /// <param name="scale"></param>
+    /// <returns></returns>
     public MetricModel MetricToScaleMM(Metrics metrics, double measurement, double scale)
     {
         MetricModel mm = new();
@@ -87,6 +97,13 @@ public class ScaleMaths
         return mm;
     }
 
+    /// <summary>
+    /// Converts Imperial real world measurements to those of the scaled world measurements
+    /// </summary>
+    /// <param name="feet"></param>
+    /// <param name="inches"></param>
+    /// <param name="scale"></param>
+    /// <returns></returns>
     public ScaleModel ImperialToScaleMM(double feet, double inches, double scale)
     {
         ScaleModel model = new();
@@ -101,7 +118,14 @@ public class ScaleMaths
         return model;
     }
 
-    public List<InchTable> InchesTable(double _inches, double _scale, int fraction)
+    /// <summary>
+    /// Converts Imperial Inches real world measurements to those of the scaled world measurements
+    /// </summary>
+    /// <param name="_inches"></param>
+    /// <param name="_scale"></param>
+    /// <param name="_fraction"></param>
+    /// <returns></returns>
+    public List<InchTable> InchesTable(double _inches, double _scale, InchFractions _fraction)
     {
         List<InchTable> list = new List<InchTable>();
         InchTable _holder = new()
@@ -113,6 +137,8 @@ public class ScaleMaths
             scale = _scale,
             scaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
         };
+
+        int fraction = (int)_fraction;
 
         list.Add(_holder);
         for (int i = 1; i < fraction; i++)
@@ -146,6 +172,12 @@ public class ScaleMaths
         return list;
     }
 
+    /// <summary>
+    /// Converts Imperial Feet real world measurements to those of the scaled world measurements
+    /// </summary>
+    /// <param name="_feet"></param>
+    /// <param name="_scale"></param>
+    /// <returns></returns>
     public List<FeetTable> FeetTable (double _feet, double _scale)
     {
         List<FeetTable> list = new List<FeetTable>();

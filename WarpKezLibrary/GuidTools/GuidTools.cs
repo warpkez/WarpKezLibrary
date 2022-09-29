@@ -2,13 +2,21 @@
 
 public class GuidTools
 {
-    // Generate a URL safe (it is alread) string
+    /// <summary>
+    /// Generate a Base64 string from GUID
+    /// </summary>
+    /// <param name="guid"></param>
+    /// <returns></returns>
     public string Guid2URL(Guid guid) => Convert.ToBase64String(guid.ToByteArray())
             .Replace("/", "-")
             .Replace("+", "_")
             .Replace("=", String.Empty);
 
-    // Generate a URL safe (it is alread) string
+    /// <summary>
+    /// Generate a Base64 string from GUID
+    /// </summary>
+    /// <param name="guid"></param>
+    /// <returns></returns>
     public string GuidToURL(Guid guid)
     {
         return Convert.ToBase64String(guid.ToByteArray())
@@ -17,7 +25,11 @@ public class GuidTools
             .Replace("=", String.Empty);
     }
 
-    // Generate the GUID from the URL safe string
+    /// <summary>
+    /// Generate GUID from Base64
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
     public Guid URLtoGuid(string url)
     {
         var guidstr = Convert.FromBase64String(url
@@ -26,6 +38,9 @@ public class GuidTools
         return new Guid(guidstr);
     }
 
-    // Why?  Not really as useful as originally thought
+    /// <summary>
+    /// Generate a new GUID
+    /// </summary>
+    /// <returns></returns>
     public Guid GenerateGUID() => Guid.NewGuid();
 }

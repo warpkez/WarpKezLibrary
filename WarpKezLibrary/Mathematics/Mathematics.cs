@@ -1,6 +1,9 @@
 ﻿namespace WarpKezLibrary.Mathematics;
 
 
+/// <summary>
+/// Demonstrates the a^2 + b^2 = c^2 of a right angle triagle
+/// </summary>
 enum RightAngleTriangleTestValues
 {
     Adjacent = 3,
