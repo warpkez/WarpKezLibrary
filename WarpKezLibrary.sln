@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarpKezLibrary", "WarpKezLibrary\WarpKezLibrary.csproj", "{4D9C78D4-7A7A-4913-91C5-193FC15711EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{59150AD8-1485-47FD-BC53-A392BFAA021C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4D9C78D4-7A7A-4913-91C5-193FC15711EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D9C78D4-7A7A-4913-91C5-193FC15711EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D9C78D4-7A7A-4913-91C5-193FC15711EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59150AD8-1485-47FD-BC53-A392BFAA021C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59150AD8-1485-47FD-BC53-A392BFAA021C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59150AD8-1485-47FD-BC53-A392BFAA021C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59150AD8-1485-47FD-BC53-A392BFAA021C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

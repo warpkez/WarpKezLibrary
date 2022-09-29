@@ -142,6 +142,7 @@ public class ScaleMaths
             scaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
         };
 
+        list.Add(_holder);
         return list;
     }
 
