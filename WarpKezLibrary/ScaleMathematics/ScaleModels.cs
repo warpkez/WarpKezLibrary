@@ -7,9 +7,9 @@ public enum Metrics
 {
     Feet,
     Inches,
-    Meters,
-    Centimeters,
-    Millimeters
+    Metres,
+    Centimetres,
+    Millimetres
 }
 
 /// <summary>
