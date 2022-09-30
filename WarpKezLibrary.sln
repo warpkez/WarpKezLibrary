@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarpKezLibrary", "WarpKezLibrary\WarpKezLibrary.csproj", "{4D9C78D4-7A7A-4913-91C5-193FC15711EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarpKezLibrary", "WarpKezLibrary\WarpKezLibrary.csproj", "{4D9C78D4-7A7A-4913-91C5-193FC15711EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{59150AD8-1485-47FD-BC53-A392BFAA021C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{59150AD8-1485-47FD-BC53-A392BFAA021C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B63871C-B861-4EC5-BEBE-8043B26C53FC}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

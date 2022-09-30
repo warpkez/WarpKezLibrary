@@ -2,7 +2,7 @@
 
 
 /// <summary>
-/// Demonstrates the a^2 + b^2 = c^2 of a right angle triagle
+/// Basics of Pythagorean theorem a^2 + b^2 = c^2
 /// </summary>
 enum RightAngleTriangleTestValues
 {
@@ -12,7 +12,7 @@ enum RightAngleTriangleTestValues
 }
 
 /// <summary>
-/// Model for integer fractions x and y over z
+/// Model for fractions
 /// </summary>
 public class SimplifiedFractionModel
 {
@@ -56,16 +56,16 @@ public class Mathmatics
 {
 
     /// <summary>
-    /// Calculates the highest common divisor of the Numerator and Denominator in a fraction
+    /// Returns a simplified or compound fraction.
     /// </summary>
     /// <param name="numerator"></param>
     /// <param name="denominator"></param>
-    /// <returns>An Integer array containing the simplified fraction</returns>
+    /// <returns></returns>
     public SimplifiedFractionModel SimplifiedFraction(int numerator, int denominator)
     {
         int HighComDivisor = 0;
         int[] values = new int[2];
-        SimplifiedFractionModel simplifiedFraction = new SimplifiedFractionModel();
+        SimplifiedFractionModel simplifiedFraction = new();
 
         // If the numerator is 0 why are we even here then?
         if (numerator > 0)

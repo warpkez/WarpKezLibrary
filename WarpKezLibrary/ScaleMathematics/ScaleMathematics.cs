@@ -173,6 +173,59 @@ public class ScaleMaths
     }
 
     /// <summary>
+    /// Converts Imperial Inches real world measurements to those of the scaled world measurements
+    /// </summary>
+    /// <param name="_inches"></param>
+    /// <param name="_scale"></param>
+    /// <param name="fraction"></param>
+    /// <returns></returns>
+    public List<InchTable> InchesTable(double _inches, double _scale, int fraction)
+    {
+        List<InchTable> list = new List<InchTable>();
+        InchTable _holder = new()
+        {
+            id = 0,
+            inches = _inches,
+            numerator = 0,
+            denominator = 0,
+            scale = _scale,
+            scaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
+        };
+
+        list.Add(_holder);
+        for (int i = 1; i < fraction; i++)
+        {
+            Mathmatics m = new();
+            var simplified = m.SimplifiedFraction(i, fraction);
+
+            _holder = new()
+            {
+                id = i,
+                inches = _inches,
+                numerator = simplified.numerator,
+                denominator = simplified.denominator,
+                scale = _scale,
+                scaleMM = ScaledMillmeters(Metrics.Inches, (double)_inches + ((double)i / (double)fraction), _scale)
+            };
+            list.Add(_holder);
+        }
+
+        _holder = new()
+        {
+            id = list.Count(),
+            inches = _inches + 1,
+            numerator = 0,
+            denominator = 0,
+            scale = _scale,
+            scaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
+        };
+
+        list.Add(_holder);
+        return list;
+    }
+
+
+    /// <summary>
     /// Converts Imperial Feet real world measurements to those of the scaled world measurements
     /// </summary>
     /// <param name="_feet"></param>

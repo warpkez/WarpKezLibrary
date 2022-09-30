@@ -17,13 +17,13 @@ public enum Metrics
 /// </summary>
 public enum InchFractions
 {
-    OneOver1 = 1,
-    OneOver2 = 2,
-    OneOver4 = 4,
-    OneOver8 = 8,
-    OneOver16 = 16,
-    OneOver32 = 32,
-    OneOver64 = 64
+    One = 1,
+    Half = 2,
+    Quarter = 4,
+    Eigth = 8,
+    Sixteenth = 16,
+    Thirty2nd = 32,
+    Sixty4th = 64
 }
 
 /// <summary>
