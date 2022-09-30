@@ -24,7 +24,7 @@ public class SimplifiedFractionModel
 /// <summary>
 /// Model for a Right Angle Triangle
 /// </summary>
-public class RightAngleTriangle
+public class RightAngleTriangleModel
 {
     /// <summary>
     /// Hypotenuse and adjacent    
@@ -52,7 +52,7 @@ public class RightAngleTriangle
 /// <summary>
 /// Mathmatical methods
 /// </summary>
-public class Mathmatics
+public class Mathematicals
 {
 
     /// <summary>

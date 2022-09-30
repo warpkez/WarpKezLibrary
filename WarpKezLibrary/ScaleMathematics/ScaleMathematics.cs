@@ -144,7 +144,7 @@ public class ScaleMaths
         list.Add(_holder);
         for (int i = 1; i < fraction; i++)
         {
-            Mathmatics m = new();
+            Mathematicals m = new();
             var simplified = m.SimplifiedFraction(i, fraction);
 
             _holder = new()
@@ -196,7 +196,7 @@ public class ScaleMaths
         list.Add(_holder);
         for (int i = 1; i < fraction; i++)
         {
-            Mathmatics m = new();
+            Mathematicals m = new();
             var simplified = m.SimplifiedFraction(i, fraction);
 
             _holder = new()
