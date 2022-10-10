@@ -37,6 +37,7 @@
 - InchTable
 - MetricModel
 - ScaleModel
+- MultiTable
 
 #### ScaleMathematics
 
@@ -47,3 +48,4 @@
 - public List<InchTable> InchesTable(double _inches, double _scale, InchFractions _fraction)
 - public List<InchTable> InchesTable(double _inches, double _scale, int fraction)
 - public List<FeetTable> FeetTable (double _feet, double _scale)
+- public List<MultiTable> MultiScaleTable (int feet)
