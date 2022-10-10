@@ -273,4 +273,54 @@ public class ScaleMaths
 
         return list;
     }
+
+    public List<MultiTable> MultiScaleTable (int feet)
+    {
+        List<MultiTable> list = new();
+        MultiTable _holder = new()
+        { feet = feet, inches = 0,
+          id = list.Count,
+          scale160 = ScaledMillmeters(Metrics.Feet, feet, 160),
+          scale87 = ScaledMillmeters(Metrics.Feet, feet, 87),
+          scale76 = ScaledMillmeters(Metrics.Feet, feet, 76),
+          scale64 = ScaledMillmeters(Metrics.Feet, feet, 64),
+          scale48 = ScaledMillmeters(Metrics.Feet, feet, 48)          
+        };
+
+        list.Add(_holder);
+        
+        for (int inch = 1; inch < 12; inch ++)
+        {
+            _holder = new()
+            {
+                id = inch,
+                feet = feet,
+                inches = inch,
+
+                scale160 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 160),
+                scale87 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 87),
+                scale76 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 76),
+                scale64 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 64),
+                scale48 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 48)
+            };
+
+            list.Add(_holder);
+        }
+        
+        _holder = new()
+        {
+            feet = feet + 1,
+            inches = 0,
+            id = list.Count,
+            scale160 = ScaledMillmeters(Metrics.Feet, feet + 1, 160),
+            scale87 = ScaledMillmeters(Metrics.Feet, feet +1, 87),
+            scale76 = ScaledMillmeters(Metrics.Feet, feet +1, 76),
+            scale64 = ScaledMillmeters(Metrics.Feet, feet +1, 64),
+            scale48 = ScaledMillmeters(Metrics.Feet, feet +1, 48)            
+        };
+
+        list.Add(_holder);
+
+        return list;
+    }
 }

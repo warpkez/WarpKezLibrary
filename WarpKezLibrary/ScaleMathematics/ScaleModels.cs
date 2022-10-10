@@ -79,3 +79,18 @@ public class ScaleModel
     public double scaleMM { get; set; } = 0.0;
     public string message { get; set; } = string.Empty;
 }
+
+/// <summary>
+/// Model for common NMRA scale
+/// </summary>
+public class MultiTable
+{
+    public int id { get; set; } = 0;
+    public int feet { get; set; } = 0;
+    public int inches { get; set; } = 0;    
+    public double scale87 { get; set; } = 0.0;
+    public double scale76 { get; set; } = 0.0;
+    public double scale64 { get; set; } = 0.0;
+    public double scale48 { get; set; } = 0.0;
+    public double scale160 { get; set; } = 0.0;
+}
