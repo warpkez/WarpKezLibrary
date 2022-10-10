@@ -92,5 +92,6 @@ public class MultiTable
     public double scale76 { get; set; } = 0.0;
     public double scale64 { get; set; } = 0.0;
     public double scale48 { get; set; } = 0.0;
+    public double scale120 { get; set; } = 0.0;
     public double scale160 { get; set; } = 0.0;
 }
