@@ -126,10 +126,10 @@ public class ScaleMaths
     /// <param name="_scale"></param>
     /// <param name="_fraction"></param>
     /// <returns></returns>
-    public List<InchTable> InchesTable(double _inches, double _scale, InchFractions _fraction)
+    public List<InchTableModel> InchesTable(double _inches, double _scale, InchFractions _fraction)
     {
-        List<InchTable> list = new();
-        InchTable _holder = new()
+        List<InchTableModel> list = new();
+        InchTableModel _holder = new()
         {
             id = 0,
             inches = _inches,
@@ -180,10 +180,10 @@ public class ScaleMaths
     /// <param name="_scale"></param>
     /// <param name="fraction"></param>
     /// <returns></returns>
-    public List<InchTable> InchesTable(double _inches, double _scale, int fraction)
+    public List<InchTableModel> InchesTable(double _inches, double _scale, int fraction)
     {
-        List<InchTable> list = new();
-        InchTable _holder = new()
+        List<InchTableModel> list = new();
+        InchTableModel _holder = new()
         {
             id = 0,
             inches = _inches,
@@ -232,10 +232,10 @@ public class ScaleMaths
     /// <param name="_feet"></param>
     /// <param name="_scale"></param>
     /// <returns></returns>
-    public List<FeetTable> FeetTable(double _feet, double _scale)
+    public List<FeetTableModel> FeetTable(double _feet, double _scale)
     {
-        List<FeetTable> list = new();
-        FeetTable _holder = new()
+        List<FeetTableModel> list = new();
+        FeetTableModel _holder = new()
         {
             id = 0,
             feet = _feet,
@@ -274,10 +274,10 @@ public class ScaleMaths
         return list;
     }
 
-    public List<MultiTable> MultiScaleTable(int feet)
+    public List<MultiTableModel> MultiScaleTable(int feet)
     {
-        List<MultiTable> list = new();
-        MultiTable _holder = new()
+        List<MultiTableModel> list = new();
+        MultiTableModel _holder = new()
         {
             feet = feet,
             inches = 0,

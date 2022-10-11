@@ -29,7 +29,7 @@ public enum InchFractions
 /// <summary>
 /// Class capable of being indexed for JSON tables.
 /// </summary>
-public class FeetTable
+public class FeetTableModel
 {
     public int id { get; set; } = 0;
     public double feet { get; set; } = 0.0;
@@ -42,7 +42,7 @@ public class FeetTable
 /// <summary>
 /// Class capable of being indexed for JSON tables.
 /// </summary>
-public class InchTable
+public class InchTableModel
 {
     public int id { get; set; } = 0;
     public double inches { get; set; } = 0.0;
@@ -83,7 +83,7 @@ public class ScaleModel
 /// <summary>
 /// Model for common NMRA scale
 /// </summary>
-public class MultiTable
+public class MultiTableModel
 {
     public int id { get; set; } = 0;
     public int feet { get; set; } = 0;
