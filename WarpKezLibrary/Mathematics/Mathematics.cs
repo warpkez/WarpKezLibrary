@@ -1,59 +1,78 @@
 ﻿namespace WarpKezLibrary.Mathematics;
 
-
-/// <summary>
-/// Basics of Pythagorean theorem a^2 + b^2 = c^2
-/// </summary>
-enum RightAngleTriangleTestValues
-{
-    Adjacent = 3,
-    Opposite = 4,
-    Hypotenuse = 5
-}
-
-/// <summary>
-/// Model for fractions
-/// </summary>
-public class SimplifiedFractionModel
-{
-    public int unit { get; set; }
-    public int numerator { get; set; }
-    public int denominator { get; set; }
-}
-
-/// <summary>
-/// Model for a Right Angle Triangle
-/// </summary>
-public class RightAngleTriangleModel
-{
-    /// <summary>
-    /// Hypotenuse and adjacent    
-    /// eg /_
-    /// </summary>
-    public double Angle_A { get; set; }
-
-    /// <summary>
-    /// Hypotenuse and opposite    
-    /// eg /|
-    /// </summary>
-    public double Angle_B { get; set; }
-
-    /// <summary>
-    /// Adjacent and opposite    
-    /// eg _|
-    /// </summary>
-    public double Angle_C { get; set; } = 90;
-
-    public double Adjacent { get; set; }
-    public double Opposite { get; set; }
-    public double Hypotenuse { get; set; }
-}
-
 /// <summary>
 /// Mathmatical methods
 /// </summary>
 public class Mathematicals
 {
+    /// <summary>
+    /// Returns a complex fraction from a compound fraction
+    /// </summary>
+    /// <param name="simplifiedFraction"></param>
+    /// <returns></returns>
+    public ComplexFractionModel ComplexFraction(CompoundFractionModel simplifiedFraction)
+    {
+        ComplexFractionModel _complexFractionModel = new()
+        {
+            numerator = (simplifiedFraction.unit * simplifiedFraction.denominator) + simplifiedFraction.numerator,
+            denominator = simplifiedFraction.denominator
+        };
+
+        return _complexFractionModel;
+    }
+
+    /// <summary>
+    /// Returns a complex fraction from a compound fraction
+    /// </summary>
+    /// <param name="Unit"></param>
+    /// <param name="Numerator"></param>
+    /// <param name="Denominator"></param>
+    /// <returns></returns>
+    public ComplexFractionModel ComplexFraction(int Unit, int Numerator, int Denominator)
+    {
+        ComplexFractionModel _complexFractionModel = new()
+        {
+            numerator = (Unit * Denominator) + Numerator,
+            denominator = Denominator
+        };
+
+        return _complexFractionModel;
+    }
+
+    /// <summary>
+    /// Returns a compound fraction when passed a complex fraction (note: not optimised for lowest common denominator)
+    /// </summary>
+    /// <param name="complexFraction"></param>
+    /// <returns></returns>
+    public CompoundFractionModel CompountFraction(ComplexFractionModel complexFraction)
+    {
+        CompoundFractionModel _compoundFraction = new();
+        int _unit = Math.Abs(complexFraction.numerator / complexFraction.denominator);
+        _compoundFraction.unit = _unit;
+        _compoundFraction.numerator = complexFraction.numerator - (_unit * complexFraction.denominator);
+        _compoundFraction.denominator = complexFraction.denominator;
+
+
+        return _compoundFraction;
+    }
+
+    /// <summary>
+    /// Returns a compound fraction when passed a complex fraction (note: not optimised for lowest common denominator)
+    /// </summary>
+    /// <param name="Numerator"></param>
+    /// <param name="Denominator"></param>
+    /// <returns></returns>
+    public CompoundFractionModel CompountFraction(int Numerator, int Denominator)
+    {
+        CompoundFractionModel _compoundFraction = new();
+        int _unit = Math.Abs(Numerator / Denominator);
+        _compoundFraction.unit = _unit;
+        _compoundFraction.numerator = Numerator - (_unit * Denominator);
+        _compoundFraction.denominator = Denominator;
+
+
+        return _compoundFraction;
+    }
 
     /// <summary>
     /// Returns a simplified or compound fraction.
@@ -61,11 +80,11 @@ public class Mathematicals
     /// <param name="numerator"></param>
     /// <param name="denominator"></param>
     /// <returns></returns>
-    public SimplifiedFractionModel SimplifiedFraction(int numerator, int denominator)
+    public CompoundFractionModel SimplifiedFraction(int numerator, int denominator)
     {
         int HighComDivisor = 0;
         int[] values = new int[2];
-        SimplifiedFractionModel simplifiedFraction = new();
+        CompoundFractionModel simplifiedFraction = new();
 
         // If the numerator is 0 why are we even here then?
         if (numerator > 0)

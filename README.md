@@ -15,10 +15,15 @@
 #### Mathematicals
 
 - RightAngleTriangleTestValues
+- ComplexFractionModel
 - SimplifiedFractionModel
 - RightAngleTriangleModel
 
-- public SimplifiedFractionModel SimplifiedFraction(int numerator, int denominator)
+- public ComplexFractionModel ComplexFraction(CompoundFractionModel simplifiedFraction)
+- public ComplexFractionModel ComplexFraction(int Unit, int Numerator, int Denominator)
+- public CompoundFractionModel CompountFraction(ComplexFractionModel complexFraction)
+- public CompoundFractionModel CompountFraction(int Numerator, int Denominator)
+- public CompoundFractionModel SimplifiedFraction(int numerator, int denominator)
 - public double RightAngleTriangleOpposite(double hypotenuse, double adjacent)
 - public double RightAngleTriangleAdjacent(double hypotenuse, double opposite)
 - public double RightAngleTriangleHypotenuse(double adjacent, double opposite)
@@ -28,6 +33,7 @@
 - public double ArcSinA(double opposite, double hypotenuse)
 - public double ArcCosA(double adjacent, double hypotenuse)
 - public double ArcTanA(double opposite, double adjacent)
+
 
 #### ScaleModels
 
