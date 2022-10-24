@@ -13,8 +13,8 @@ public class ScaleMaths
     private double FeetToInches(double feet) => (feet * 12.0);
     private double InchesToMillimeters(double inches) => inches * 25.4;
 
-    public double MetersToMillimeters(double meters) => meters * 1000;
-    public double CentimetersToMillimeters(double centimeters) => centimeters * 10;
+    private double MetersToMillimeters(double meters) => meters * 1000;
+    private double CentimetersToMillimeters(double centimeters) => centimeters * 10;
 
     /// <summary>
     /// Constructor to set the number of decimal places return by Math.Round. 
@@ -23,10 +23,10 @@ public class ScaleMaths
     public ScaleMaths(int decimalPrecision)
     {
         if (decimalPrecision < 0)
-            throw new Exception("Must not be a negative number.");
+            decimalPrecision *= -1;
 
         if (decimalPrecision > 10)
-            throw new Exception("Precision too high. Between 1 and 4 is realistic, 10 decimal places is the maximum.");
+            decimalPrecision = 10;
 
         _DecimalPrecision = decimalPrecision;
     }
