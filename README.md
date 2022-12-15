@@ -35,23 +35,20 @@
 - public double ArcTanA(double opposite, double adjacent)
 
 
-#### ScaleModels
-
-- Metrics
-- InchFractions
-- FeetTable
-- InchTable
-- MetricModel
-- ScaleModel
-- MultiTable
+#### ImperialModel
+#### MetricModel
+#### MultiScaleModel
 
 #### ScaleMathematics
+- Metrics
+- InchFractions
 
 - public ScaleMaths(int decimalPrecision)
 - public ScaleMaths()
+
 - public MetricModel MetricToScaleMM(Metrics metrics, double measurement, double scale)
-- public ScaleModel ImperialToScaleMM(double feet, double inches, double scale)
-- public List<InchTable> InchesTable(double _inches, double _scale, InchFractions _fraction)
-- public List<InchTable> InchesTable(double _inches, double _scale, int fraction)
-- public List<FeetTable> FeetTable (double _feet, double _scale)
-- public List<MultiTable> MultiScaleTable (int feet)
+- public ImperialModel ImperialToScaleMM(double feet, double inches, double scale)
+- public List<ImperialModel> InchesTable(double _inches, double _scale, InchFractions _fraction)
+- public List<ImperialModel> InchesTable(double _inches, double _scale, int fraction)
+- public List<ImperialModel> FeetTable (double _feet, double _scale)
+- public List<MultiScaleModel> MultiScaleTable (int feet)

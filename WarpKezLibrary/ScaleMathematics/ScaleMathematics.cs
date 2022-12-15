@@ -1,6 +1,33 @@
 ﻿using WarpKezLibrary.Mathematics;
+using WarpKezLibrary.ScaleMathematics.Models;
 
 namespace WarpKezLibrary.ScaleMathematics;
+
+/// <summary>
+/// Definitions of current supported metrics
+/// </summary>
+public enum Metrics
+{
+    Feet,
+    Inches,
+    Metres,
+    Centimetres,
+    Millimetres
+}
+
+/// <summary>
+/// Supported Fractions
+/// </summary>
+public enum InchFractions
+{
+    One = 1,
+    Half = 2,
+    Quarter = 4,
+    Eigth = 8,
+    Sixteenth = 16,
+    Thirty2nd = 32,
+    Sixty4th = 64
+}
 
 /// <summary>
 /// Mathematica routines for scale modeling
@@ -79,15 +106,15 @@ public class ScaleMaths
         switch (metrics)
         {
             case Metrics.Metres:
-                mm.Metre = measurement;
+                mm.Meters = measurement;
                 mm.ScaleMM = ScaledMillmeters(metrics, measurement, scale);
                 break;
             case Metrics.Centimetres:
-                mm.Centimetre = measurement;
+                mm.Centimeters = measurement;
                 mm.ScaleMM = ScaledMillmeters(metrics, measurement, scale);
                 break;
             case Metrics.Millimetres:
-                mm.Millimetre = measurement;
+                mm.Millimeters = measurement;
                 mm.ScaleMM = ScaledMillmeters(metrics, measurement, scale);
                 break;
         }
@@ -104,17 +131,17 @@ public class ScaleMaths
     /// <param name="inches"></param>
     /// <param name="scale"></param>
     /// <returns></returns>
-    public ScaleModel ImperialToScaleMM(double feet, double inches, double scale)
+    public ImperialModel ImperialToScaleMM(double feet, double inches, double scale)
     {
-        ScaleModel model = new()
+        ImperialModel model = new()
         {
-            feet = feet,
-            inches = inches,
-            scale = scale
+            Feet = feet,
+            Inches = inches,
+            Scale = scale
         };
 
         double _inches = FeetToInches(feet);
-        model.scaleMM = ScaledMillmeters(Metrics.Inches, (inches + _inches), scale);
+        model.ScaleMM = ScaledMillmeters(Metrics.Inches, (inches + _inches), scale);
 
         return model;
     }
@@ -126,17 +153,17 @@ public class ScaleMaths
     /// <param name="_scale"></param>
     /// <param name="_fraction"></param>
     /// <returns></returns>
-    public List<InchTableModel> InchesTable(double _inches, double _scale, InchFractions _fraction)
+    public List<ImperialModel> InchesTable(double _inches, double _scale, InchFractions _fraction)
     {
-        List<InchTableModel> list = new();
-        InchTableModel _holder = new()
+        List<ImperialModel> list = new();
+        ImperialModel _holder = new()
         {
             id = 0,
-            inches = _inches,
-            numerator = 0,
-            denominator = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
+            Inches = _inches,
+            Numerator = 0,
+            Denominator = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
         };
 
         int fraction = (int)_fraction;
@@ -150,11 +177,11 @@ public class ScaleMaths
             _holder = new()
             {
                 id = i,
-                inches = _inches,
-                numerator = simplified.numerator,
-                denominator = simplified.denominator,
-                scale = _scale,
-                scaleMM = ScaledMillmeters(Metrics.Inches, (double)_inches + ((double)i / (double)fraction), _scale)
+                Inches = _inches,
+                Numerator = simplified.numerator,
+                Denominator = simplified.denominator,
+                Scale = _scale,
+                ScaleMM = ScaledMillmeters(Metrics.Inches, (double)_inches + ((double)i / (double)fraction), _scale)
             };
             list.Add(_holder);
         }
@@ -162,11 +189,11 @@ public class ScaleMaths
         _holder = new()
         {
             id = list.Count,
-            inches = _inches + 1,
-            numerator = 0,
-            denominator = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
+            Inches = _inches + 1,
+            Numerator = 0,
+            Denominator = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
         };
 
         list.Add(_holder);
@@ -180,17 +207,17 @@ public class ScaleMaths
     /// <param name="_scale"></param>
     /// <param name="fraction"></param>
     /// <returns></returns>
-    public List<InchTableModel> InchesTable(double _inches, double _scale, int fraction)
+    public List<ImperialModel> InchesTable(double _inches, double _scale, int fraction)
     {
-        List<InchTableModel> list = new();
-        InchTableModel _holder = new()
+        List<ImperialModel> list = new();
+        ImperialModel _holder = new()
         {
             id = 0,
-            inches = _inches,
-            numerator = 0,
-            denominator = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
+            Inches = _inches,
+            Numerator = 0,
+            Denominator = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Inches, _inches, _scale)
         };
 
         list.Add(_holder);
@@ -202,11 +229,11 @@ public class ScaleMaths
             _holder = new()
             {
                 id = i,
-                inches = _inches,
-                numerator = simplified.numerator,
-                denominator = simplified.denominator,
-                scale = _scale,
-                scaleMM = ScaledMillmeters(Metrics.Inches, (double)_inches + ((double)i / (double)fraction), _scale)
+                Inches = _inches,
+                Numerator = simplified.numerator,
+                Denominator = simplified.denominator,
+                Scale = _scale,
+                ScaleMM = ScaledMillmeters(Metrics.Inches, (double)_inches + ((double)i / (double)fraction), _scale)
             };
             list.Add(_holder);
         }
@@ -214,11 +241,11 @@ public class ScaleMaths
         _holder = new()
         {
             id = list.Count,
-            inches = _inches + 1,
-            numerator = 0,
-            denominator = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
+            Inches = _inches + 1,
+            Numerator = 0,
+            Denominator = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Inches, _inches + 1, _scale)
         };
 
         list.Add(_holder);
@@ -232,16 +259,16 @@ public class ScaleMaths
     /// <param name="_feet"></param>
     /// <param name="_scale"></param>
     /// <returns></returns>
-    public List<FeetTableModel> FeetTable(double _feet, double _scale)
+    public List<ImperialModel> FeetTable(double _feet, double _scale)
     {
-        List<FeetTableModel> list = new();
-        FeetTableModel _holder = new()
+        List<ImperialModel> list = new();
+        ImperialModel _holder = new()
         {
             id = 0,
-            feet = _feet,
-            inches = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Feet, _feet, _scale)
+            Feet = _feet,
+            Inches = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Feet, _feet, _scale)
         };
 
         list.Add(_holder);
@@ -251,10 +278,10 @@ public class ScaleMaths
             _holder = new()
             {
                 id = i,
-                feet = _feet,
-                scale = _scale,
-                inches = i,
-                scaleMM = ScaledMillmeters(Metrics.Inches, (FeetToInches(_feet) + i), _scale)
+                Feet = _feet,
+                Scale = _scale,
+                Inches = i,
+                ScaleMM = ScaledMillmeters(Metrics.Inches, (FeetToInches(_feet) + i), _scale)
             };
 
             list.Add(_holder);
@@ -263,10 +290,10 @@ public class ScaleMaths
         _holder = new()
         {
             id = list.Count,
-            feet = _feet + 1,
-            inches = 0,
-            scale = _scale,
-            scaleMM = ScaledMillmeters(Metrics.Feet, _feet + 1, _scale)
+            Feet = _feet + 1,
+            Inches = 0,
+            Scale = _scale,
+            ScaleMM = ScaledMillmeters(Metrics.Feet, _feet + 1, _scale)
         };
 
         list.Add(_holder);
@@ -274,20 +301,25 @@ public class ScaleMaths
         return list;
     }
 
-    public List<MultiTableModel> MultiScaleTable(int feet)
+    /// <summary>
+    /// Generates a table across multiple scales for a given footage
+    /// </summary>
+    /// <param name="feet"></param>
+    /// <returns></returns>
+    public List<MultiScaleModel> MultiScaleTable(int feet)
     {
-        List<MultiTableModel> list = new();
-        MultiTableModel _holder = new()
+        List<MultiScaleModel> list = new();
+        MultiScaleModel _holder = new()
         {
-            feet = feet,
-            inches = 0,
+            Feet = feet,
+            Inches = 0,
             id = list.Count,
-            scale160 = ScaledMillmeters(Metrics.Feet, feet, 160),
-            scale120 = ScaledMillmeters(Metrics.Feet, feet, 120),
-            scale87 = ScaledMillmeters(Metrics.Feet, feet, 87),
-            scale76 = ScaledMillmeters(Metrics.Feet, feet, 76),
-            scale64 = ScaledMillmeters(Metrics.Feet, feet, 64),
-            scale48 = ScaledMillmeters(Metrics.Feet, feet, 48)
+            Scale160 = ScaledMillmeters(Metrics.Feet, feet, 160),
+            Scale120 = ScaledMillmeters(Metrics.Feet, feet, 120),
+            Scale87 = ScaledMillmeters(Metrics.Feet, feet, 87),
+            Scale76 = ScaledMillmeters(Metrics.Feet, feet, 76),
+            Scale64 = ScaledMillmeters(Metrics.Feet, feet, 64),
+            Scale48 = ScaledMillmeters(Metrics.Feet, feet, 48)
         };
 
         list.Add(_holder);
@@ -297,15 +329,15 @@ public class ScaleMaths
             _holder = new()
             {
                 id = inch,
-                feet = feet,
-                inches = inch,
+                Feet = feet,
+                Inches = inch,
 
-                scale160 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 160),
-                scale120 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 120),
-                scale87 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 87),
-                scale76 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 76),
-                scale64 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 64),
-                scale48 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 48)
+                Scale160 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 160),
+                Scale120 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 120),
+                Scale87 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 87),
+                Scale76 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 76),
+                Scale64 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 64),
+                Scale48 = ScaledMillmeters(Metrics.Inches, (FeetToInches(feet) + inch), 48)
             };
 
             list.Add(_holder);
@@ -313,15 +345,15 @@ public class ScaleMaths
 
         _holder = new()
         {
-            feet = feet + 1,
-            inches = 0,
+            Feet = feet + 1,
+            Inches = 0,
             id = list.Count,
-            scale160 = ScaledMillmeters(Metrics.Feet, feet + 1, 160),
-            scale120 = ScaledMillmeters(Metrics.Feet, feet + 1, 120),
-            scale87 = ScaledMillmeters(Metrics.Feet, feet + 1, 87),
-            scale76 = ScaledMillmeters(Metrics.Feet, feet + 1, 76),
-            scale64 = ScaledMillmeters(Metrics.Feet, feet + 1, 64),
-            scale48 = ScaledMillmeters(Metrics.Feet, feet + 1, 48)
+            Scale160 = ScaledMillmeters(Metrics.Feet, feet + 1, 160),
+            Scale120 = ScaledMillmeters(Metrics.Feet, feet + 1, 120),
+            Scale87 = ScaledMillmeters(Metrics.Feet, feet + 1, 87),
+            Scale76 = ScaledMillmeters(Metrics.Feet, feet + 1, 76),
+            Scale64 = ScaledMillmeters(Metrics.Feet, feet + 1, 64),
+            Scale48 = ScaledMillmeters(Metrics.Feet, feet + 1, 48)
         };
 
         list.Add(_holder);
