@@ -11,7 +11,7 @@ public class ImperialModel
     public double Scale { get; set; } = 0.0;
     public double ScaleMM { get; set; } = 0.0;
 
-    public double ScaleInches => Math.Round(ScaleMM / 25.4, 3);
+    public double ScaleInchesDecimal => Math.Round(ScaleMM / 25.4, 3);
     //public double ScaleInches { get; set; } = 0.0;
     public string Message { get; set; } = string.Empty;
 }
